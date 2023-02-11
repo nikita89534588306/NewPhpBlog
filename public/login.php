@@ -25,7 +25,7 @@
 
 					<div class="btn-reg-login mt-3">
 						<button class="login-btn col-12 col-md-4 btn btn-secondary" name='btn-log' value="1" type="submit">Войти</button>
-						<a class="reg-btn col-12 col-md-4 btn btn-light" href="./reg.php">Зарегистироваться</a>
+						<a class="reg-btn col-12 col-md-5 btn btn-light" href="./reg.php">Зарегистироваться</a>
 					</div>
 				</form>
 			</div>
