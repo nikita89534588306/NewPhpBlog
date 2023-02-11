@@ -4,7 +4,7 @@ const sass = require('gulp-sass')(require('sass')); //подключаем мо�
 const autopre = require('gulp-autoprefixer') //подключаем модуль автопрефиксера
 
 function sassToCSS(done){    
-    gulp.src('./src/scss/main.scss') //берем файл по пути
+    gulp.src('./src/scss/**/*') //берем файл по пути
         // pipe() функция в которую передаем колбек для выполнения 
         // заданий последовательно 
         .pipe(
@@ -19,7 +19,7 @@ function sassToCSS(done){
             autopre(                                    //функция модуля автопрефиксера                                
                 {
                     overrideBrowserslist: ['last 4 versions'],     // последние 10 версий
-                     cascade: false
+                    cascade: false
                 }
             )
         )
@@ -37,4 +37,8 @@ function sassToCSS(done){
     done();
 }
 
-gulp.task("default", sassToCSS);
+function watchSASS(){
+    gulp.watch("./src/scss/**/*", sassToCSS)
+}
+
+gulp.task("default", watchSASS);
