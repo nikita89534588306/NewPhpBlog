@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/nikita89534588306/NewPhpBlog/issues"
   },
-  "homepage": "https://github.com/nikita89534588306/NewPhpBlog#readme"
+  "homepage": "https://github.com/nikita89534588306/NewPhpBlog#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
 }
