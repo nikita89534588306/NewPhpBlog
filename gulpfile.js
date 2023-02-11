@@ -1,14 +1,12 @@
 var gulp = require("gulp")
 
-function defaultTask(done){
-    console.log("Test");
+//тестовый таск 
+function copy(done){    
+    gulp.src('./src/scss/main.scss') //берем файл по пути
+        .pipe(  //далее...
+            gulp.dest('./src/css/') //отправляем файл по пути './scr/css/' 
+        );
     done();
 }
 
-function helloWorld(done){
-    console.log("helloWorld");
-    done();
-}
-
-gulp.task("hi", helloWorld);
-gulp.task("default", defaultTask);
+gulp.task("default", copy);
