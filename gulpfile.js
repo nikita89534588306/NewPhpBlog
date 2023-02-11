@@ -9,13 +9,15 @@ function sassToCSS(done){
         // заданий последовательно 
         .pipe(
             sass(                               //переводим sass в css
-                { errorLogToConsole: true}      //настройка: выводить ошибки в консоль
+                { errorLogToConsole: true,      //настройка: выводить ошибки в консоль
+                  outputStyle: 'compressed'     //минифицируем файл
+                }      
             )
         )
         .on("error", console.error.bind(console)) //ОБРАБОТЧИК СОБЫТИЙ - БЕЗ НЕГО НЕ ВЫВОДЯТСЯ ОШИБКИ ОТ ПРЕПРОЦЕССОТА SASS
         .pipe(
             rename(                             //функция для переименования файла
-                // {suffix: ".min"},                //добавление суффикса
+                {suffix: ".min"},                   //добавление суффикса
                 "main.css"                          //имя файла
             )
         )  
