@@ -1,0 +1,111 @@
+header{
+	color: #ffffff;
+	background: #008484;
+	.con{
+		width: 80%;
+		margin: 0 auto;
+		display: flex;
+		@media (max-width:767px){
+			display: block;
+			width: 100%;
+		}
+		
+	}
+	.logo{
+		margin: 0;
+		padding: 0;
+		width: 20%;
+		@media (max-width:767px){
+			width: 100%;
+			padding: 10px ;
+			display: block;
+			text-align: center;
+		}
+		
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.navbar{
+		margin: 0;
+		padding: 0;
+		width: 80%;
+		display: flex;
+		justify-content: end;
+		height: 55px;
+
+		@media (max-width:767px){
+			display: block;
+			height: 100%;
+			width: 100%;
+		}
+		
+		list-style-type: none;
+		
+
+		.navbar-item{
+			height: 100%;
+			
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			@media (max-width:767px){
+				display: block;
+				width: 100%;
+				
+				text-align: center;
+				vertical-align: middle;
+			}
+			
+		}
+		.navbar-item:hover{
+			transition: 0.5s;
+			background-color: #006669;
+		}
+
+
+		.navbar-link{
+			color: #ffffff;
+			display: block;
+			padding:  10px;
+			@media (max-width:767px){
+				
+			}
+		}
+
+		.user-select-list{
+			width: 120px;
+			z-index: 10;
+			@media (max-width:767px){
+				width: 100%;
+			}
+			.icon{
+				margin-right: 10px;
+			}
+
+			.user-action{
+				margin: 0;
+				padding: 0;
+				list-style-type: none;
+				background: #008484;
+				top:55px;
+				display: none;
+				@media (min-width:768px){
+					position: absolute;
+				}
+				
+			} 
+
+			.user-action .navbar-item{
+				@media (min-width:768px){
+					width: 120px;
+				}
+				text-align: center;
+			}
+		}
+		.user-select-list:hover .user-action{
+			display: block;
+		}
+	}
+}

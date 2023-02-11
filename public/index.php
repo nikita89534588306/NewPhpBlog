@@ -4,6 +4,6 @@
     <?php include "./templates/head.php" ?>
 </head>
 <body>
-    <?php echo "test" ?>
+    <?php include "./templates/header.php" ?>
 </body>
 </html>

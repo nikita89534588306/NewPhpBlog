@@ -1,0 +1,112 @@
+footer{
+	background-color: #303036;
+	color: #d3d3d3;
+	padding: 10px;
+	.con{
+		width: 80%;
+		margin: 0 auto;
+	}
+
+}
+
+footer .description-blog{
+
+	.header-desc{
+		text-align: center;
+		padding-top: 10px;
+	}
+	.desc{
+		margin-bottom: 5px;
+	}
+	.contacts{
+		display: flex;
+		.contact-phone,
+		.email{
+			display: inline;
+		}
+		@media (max-width: 374px),(min-width:1023px) and (max-width:1439px){
+			font-size: 0.9rem;
+		}
+		@media (max-width: 767px), (min-width:1023px) and (max-width:1439px){
+			display: flex;
+			justify-content: space-around;
+			.contact-phone,
+			.email{
+				
+				margin: 5px;
+			}
+		}
+		@media (min-width: 768px) {
+			display: block;
+			float: left;
+			.contact-phone,
+			.email{
+				
+				margin: 5px;
+			}
+		}
+
+	}
+	.social-links {
+		display: inline;
+		i {margin: 10px;}
+		@media (max-width: 767px),(min-width:1023px) and (max-width:1440px){
+			width: 90%;
+			display: flex;
+			margin: 0 auto;
+			justify-content: space-around;
+			padding: 10px 0px;
+		}
+
+		@media (min-width: 768px) and (max-width:1023px), (min-width:1441px){
+			display: flex;
+			justify-content: flex-end;
+		}
+	}
+}
+
+	footer .quickLinks{
+	height: 100%;
+	
+		margin:  10px 0;
+		.linksList 
+			.link{
+				display: inline;
+				margin: 10px;
+				margin: 0 5px;
+				padding: 0;
+			}
+		
+	}	
+
+	footer .feedback{
+		margin:  10px 0;
+		.text-input,
+		.input-email{
+			background:  #303036;
+			border: 2px solid silver;
+			color: white;
+			&::placeholder{
+				color: white;
+				text-indent: 10px;
+			}
+		}
+		.input-email{
+			display: block;
+			width: 100%;
+			margin-bottom: 5px;
+		}
+		.text-input{
+			width: 100%;
+
+		}
+		.contact-btn{
+			width: 100%;
+			display: block;
+			color: white;
+			i::before{
+				margin-right: 10px;
+			}
+		}
+
+	}
