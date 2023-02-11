@@ -1,0 +1,17 @@
+.login .header{
+	text-align: center;
+}
+
+.login .data-user {
+	.btn-reg-login{
+		*{
+			margin-bottom: 15px;
+		}
+		@media (min-width: 767px){
+			display: flex;
+			justify-content: space-between;
+		}
+	
+	}
+	
+}
