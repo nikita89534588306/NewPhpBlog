@@ -5,10 +5,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include "./templates/head.php" ?>
+    <?php include "./app/templates/head.php" ?>
 </head>
 <body>
-    <?php include "./templates/header.php" ?>
+    <?php include "./app/templates/header.php" ?>
 	<main class="container">
 
 			<div class="topPost" >
@@ -154,6 +154,6 @@
 
 
 	</main>
-    <?php include "./templates/footer.php" ?>
+    <?php include "./app/templates/footer.php" ?>
 </body>
 </html>
