@@ -31,7 +31,7 @@
 
 					<div class="mb-3">
 						<label for="passwordReg" class="form-label">Пароль</label>
-						<input name="password" type="password" class="form-control" id="passwordReg">
+						<input name="user_password" type="password" class="form-control" id="passwordReg">
 					</div>
 
 					<div class="mb-3">
