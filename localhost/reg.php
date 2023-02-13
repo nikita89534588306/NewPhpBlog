@@ -1,7 +1,7 @@
 <?php
-	// if(isset($_POST['email']))
-	// 	var_dump($_POST);
-
+	include './database/connect.php';
+	include './database/db.php';
+	include './database/controllers/users.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">

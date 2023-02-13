@@ -17,7 +17,7 @@
 			$db_pass,
 			$options
 		);
-		echo "DB connect";
+		// echo "DB connect";
 	}catch(PDOException $i){
 		die($i);
 	};

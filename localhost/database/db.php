@@ -21,7 +21,7 @@
 		return $query; //возвращаем запрос
 	}
 
-	$data = queryDB("SELECT * FROM testTable WHERE txt='Samsung'")->fetchAll(); 
-	printData($data);
+	// $data = queryDB("SELECT * FROM testTable WHERE txt='Samsung'")->fetchAll(); 
+	// printData($data);
 
 	
