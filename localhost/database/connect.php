@@ -6,7 +6,9 @@
 	$db_user = 'root';
 	$db_pass = '';
 	$charset = 'utf8';
-	$options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
+	$options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+				//опция которая говорит что мы при запросе работаем только с ассоциативным массивом
+				PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC];
 
 	try{
 		$pdo = new PDO(
