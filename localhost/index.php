@@ -1,4 +1,6 @@
-<?php include "./database/connect.php"
+<?php 
+	include "./database/connect.php";
+	include "./database/db.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
