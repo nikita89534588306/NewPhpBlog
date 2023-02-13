@@ -20,11 +20,18 @@
 		else if($user_password !== $passwordConfirm)
 			$errMsg = "Пароли не совпадают";
 		else{
-			// $user_password = password_hash($user_password, PASSWORD_DEFAULT);		//хешируем пароль
-			// queryDB("INSERT INTO webPhp.users (username, email, user_password) VALUES ( '$login', '$email', '$user_password');");  //добавляем пользователя в БД
-		}
-		
-	}else if($_SERVER['REQUEST_METHOD'] === 'GET'){
+			$isNotUniqueEmail = queryDB("SELECT id FROM users WHERE email = '$email' LIMIT 1")->fetch();
+			if($isNotUniqueEmail){
+				$errMsg = "Пользователь с данной почтой уже зарегестрирован!";
+			}
+			else{
+				//хешируем пароль
+				$user_password = password_hash($user_password, PASSWORD_DEFAULT);		//хешируем пароль
+				queryDB("INSERT INTO webPhp.users (username, email, user_password) VALUES ( '$login', '$email', '$user_password');");  //добавляем пользователя в БД
+			}
+		}		
+	}
+	else if($_SERVER['REQUEST_METHOD'] === 'GET'){
 		$login = '';
 		$email = '';
 	}
