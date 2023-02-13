@@ -22,12 +22,12 @@
 
 					<div class="mb-3">
 						<label for="loginReg" class="form-label">Ваш логин</label>
-						<input name="login" type="text" class="form-control" id="loginReg" >
+						<input name="login" value="<?=$login?>" type="text" class="form-control" id="loginReg" >
 					</div>
 
 					<div class="mb-3">
 						<label for="emailAuth" class="form-label">Email адрес</label>
-						<input name="email" type="email" class="form-control" id="emailAuth" >
+						<input name="email" value="<?=$email?>" type="email" class="form-control" id="emailAuth" >
 					</div>
 
 					<div class="mb-3">

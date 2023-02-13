@@ -25,5 +25,6 @@
 		}
 		
 	}else if($_SERVER['REQUEST_METHOD'] === 'GET'){
-
+		$login = '';
+		$email = '';
 	}
