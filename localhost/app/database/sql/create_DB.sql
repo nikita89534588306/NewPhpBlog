@@ -21,9 +21,10 @@ CREATE TABLE IF NOT EXISTS webPhp.users
 (
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 	username VARCHAR(30) NOT NULL,
-	email VARCHAR(100) NOT NULL,
+	email VARCHAR(100) UNIQUE NOT NULL,
 	user_password VARCHAR(255) NOT NULL,
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+	
 );
 /*фейковые пользователи*/
 INSERT INTO webPhp.users (username, email, user_password) 
