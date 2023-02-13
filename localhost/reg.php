@@ -40,7 +40,7 @@
 					</div>
 
 					<div class="btn-reg-login mt-3">
-						<button class="login-btn col-12 col-md-4 btn btn-secondary" name='btn-reg' value="1" type="submit">Регистрация</button>
+						<button class="login-btn col-12 col-md-4 btn btn-secondary" type="submit">Регистрация</button>
 						<a class="reg-btn col-12 col-md-5 btn btn-light" href="./login.php">Войти</a>
 					</div>
 				</form>
