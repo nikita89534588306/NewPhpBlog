@@ -33,8 +33,21 @@
 				queryDB("INSERT INTO webPhp.users (username, email, user_password) VALUES ( '$login', '$email', '$user_password');");  //добавляем пользователя в БД
 
 				//... ДАЛЕЕ ИДЕТ ЛОГИКА РАБОТЫ С СЕССИЯМИ ...
-			}
+				$dataUser = queryDB(
+					"SELECT users.id, users.username, roleVariants.name_role
+						FROM users
+						JOIN roleVariants ON users.user_role = roleVariants.id
+						ORDER BY id DESC
+						LIMIT 1")->fetch();
+				//printData($dataUser);
+				$_SESSION['id'] = $dataUser['id'];
+				$_SESSION['username'] = $dataUser['username'];
+				$_SESSION['name_role'] = $dataUser['name_role'];
+				header('location: /');
+				
+			}	
 		}		
+
 	}
 	else if($_SERVER['REQUEST_METHOD'] === 'GET'){
 		$login = '';
