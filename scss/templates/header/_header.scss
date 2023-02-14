@@ -75,8 +75,11 @@ header{
 		}
 
 		.user-select-list{
-			width: 120px;
 			z-index: 10;
+			@media (min-width:767px){
+				max-width: 140px;
+			}
+			
 			@media (max-width:767px){
 				width: 100%;
 			}
@@ -99,7 +102,7 @@ header{
 
 			.user-action .navbar-item{
 				@media (min-width:768px){
-					width: 120px;
+					width: inherit;
 				}
 				text-align: center;
 			}
