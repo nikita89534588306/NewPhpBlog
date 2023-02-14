@@ -1,6 +1,7 @@
 <?php 
-	include "./database/connect.php";
-	include "./database/db.php";
+	include './app/database/connect.php';
+	include './app/database/db.php';
+	include './app/database/controllers/users.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +21,7 @@
 				<div id="carouselExampleCaptions" class="topPost-carousel carousel slide">
 					<div class="carousel-inner">
 						<div class="carousel-item active ">
-							<img src="./img/1645469031_35-sportishka-com-p-zimnii-baikal-turizm-krasivo-foto-35.jpg" 
+							<img src="./app/img/1645469031_35-sportishka-com-p-zimnii-baikal-turizm-krasivo-foto-35.jpg" 
 								class="d-block img-fluid"  alt="..."
 							>
 							<div class="carousel-caption d-block">
@@ -29,7 +30,7 @@
 							</div>
 						</div>
 						<div class="carousel-item" >
-							<img src="./img/1670662446_44-almode-ru-p-samii-krasivii-makiyazh-na-novii-god-45.jpg" 
+							<img src="./app/img/1670662446_44-almode-ru-p-samii-krasivii-makiyazh-na-novii-god-45.jpg" 
 								class="d-block " alt="..." >
 							<div class="carousel-caption  d-block">
 								<h5>Second slide label</h5>
@@ -37,7 +38,7 @@
 							</div>
 							</div>
 						<div class="carousel-item">
-							<img src="./img/water-cafe.jpg" 
+							<img src="./app/img/water-cafe.jpg" 
 							class="d-block " alt="..." >
 							<div class="carousel-caption  d-block">
 								<h5>Third slide label</h5>
@@ -73,7 +74,7 @@
 					<div class="posts">
 						<div class="post-card">
 							<div class="img">
-								<img  src="./img/1645469031_35-sportishka-com-p-zimnii-baikal-turizm-krasivo-foto-35.jpg" 
+								<img  src="./app/img/1645469031_35-sportishka-com-p-zimnii-baikal-turizm-krasivo-foto-35.jpg" 
 									alr='...' 
 									>
 							</div>
@@ -99,7 +100,7 @@
 						
 						<div class="post-card">
 							<div class="img">
-								<img  src="./img/1670662446_44-almode-ru-p-samii-krasivii-makiyazh-na-novii-god-45.jpg" " 
+								<img  src="./app/img/1670662446_44-almode-ru-p-samii-krasivii-makiyazh-na-novii-god-45.jpg" " 
 									alr='...' 
 									>
 							</div>
@@ -124,7 +125,7 @@
 
 						<div class="post-card">
 							<div class="img">
-								<img  src="./img/water-cafe.jpg""
+								<img  src="./app/img/water-cafe.jpg""
 									alr='...' 
 									>
 							</div>
