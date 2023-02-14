@@ -77,7 +77,8 @@ header{
 		.user-select-list{
 			z-index: 10;
 			@media (min-width:767px){
-				max-width: 140px;
+				min-width: 85px;
+				max-width: 150px;
 			}
 			
 			@media (max-width:767px){
@@ -101,6 +102,10 @@ header{
 			} 
 
 			.user-action .navbar-item{
+				.navbar-link{
+					font-size: 0.9rem;
+					padding: 10px 10px;
+				}
 				@media (min-width:768px){
 					width: inherit;
 				}
