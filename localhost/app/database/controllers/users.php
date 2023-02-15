@@ -1,7 +1,7 @@
 <?php
 	$errMsg = '';
 
-	if($_SERVER['REQUEST_METHOD'] === 'POST'){
+	if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn-reg'])){
 
 		//извлекаем данные из массива POST и отчищаем от пробелов
 			$login = trim($_POST['login']);
@@ -43,13 +43,49 @@
 				$_SESSION['id'] = $dataUser['id'];
 				$_SESSION['username'] = $dataUser['username'];
 				$_SESSION['name_role'] = $dataUser['name_role'];
-				header('location: /');
+
+				if($dataUser['name_role']=="admin")  header('location: /admin.php');
+				elseif($dataUser['name_role']=="user") header('location: /');
+				
 				
 			}	
 		}		
 
 	}
 	else if($_SERVER['REQUEST_METHOD'] === 'GET'){
+		$login = '';
+		$email = '';
+	}
+
+	if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn-log'])){	
+
+		$email = trim($_POST['email']);
+		$user_password = trim($_POST['user_password']);
+		//ВАЛИДАЦИЯ
+		/*проверка заполнены ли поля...*/ 
+			if( $email === '' || $user_password === '')
+					$errMsg = "Не все поля заполнены";	
+			else{
+				//запрашиваем данные о пользователе
+				$userData = queryDB("SELECT users.id, users.username, users.user_password, roleVariants.name_role 
+										FROM users 
+										JOIN roleVariants ON users.user_role = roleVariants.id 
+										WHERE email = '$email';
+									")->fetch();
+				//если пользователь есть и введеный пароль правильный
+				if($userData && password_verify($user_password, $userData['user_password']))
+					{
+						$_SESSION['id'] = $userData['id'];
+						$_SESSION['username'] = $userData['username'];
+						$_SESSION['name_role'] = $userData['name_role'];
+		
+						if($userData['name_role']=="admin")  header('location: /admin.php');
+						elseif($userData['name_role']=="user") header('location: /');
+					}
+				else $errMsg = "Данные пользователя введены неверно";
+			}
+
+	}else if($_SERVER['REQUEST_METHOD'] === 'GET'){
 		$login = '';
 		$email = '';
 	}

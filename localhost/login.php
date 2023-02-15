@@ -16,17 +16,20 @@
 		<div class="row justify-content-center">
 			<div class="col-8 mt-4 mb-4">
 				<div class="header h2"  >Введите данные аккаунта</div>
-				<div class="messege-error alert alert-danger" role="alert">Авария если что не так</div>
-
+				<!-- <div class="messege-error alert alert-danger" role="alert">Авария если что не так</div> -->
+				<?php if($errMsg !== '')
+					echo '<div class="messege-error alert alert-danger" role="alert">'.$errMsg.'</div>'
+				?>
 				<form class="data-user row my-2" method="post" action="login.php">
+
 					<div class="mb-3">
 						<label for="emailAuth" class="form-label">Email адрес</label>
-						<input name="email" type="email" class="form-control" id="emailAuth" >
+						<input name="email" value="<?=$email?>"type="email" class="form-control" id="emailAuth" >
 					</div>
 
 					<div class="mb-3">
 						<label for="passwordAuth" class="form-label">Пароль</label>
-						<input name="password" type="password" class="form-control" id="passwordAuth">
+						<input name="user_password" type="password" class="form-control" id="passwordAuth">
 					</div>
 
 					<div class="btn-reg-login mt-3">

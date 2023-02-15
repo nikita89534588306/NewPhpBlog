@@ -33,6 +33,10 @@ VALUES
 ( 'xxx', 'xxx@ass.com', '$2y$10$srZi7f3IkT.hnaIvBv9FK.N4QhlZxpXN3duPyK3GrzpsvZSvio4Hq'), /*qwerty*/
 ( 'Mary', 'bahama@mail.ru', '$2y$10$IjWowhPwd3lbjt5I/Ci.fee309ceM4IfEQPFiRmUF5q1KMn3X.OI6'); /*bagama*/
 
+INSERT INTO webPhp.users (username, email, user_password) 
+VALUES 
+( 'god', 'god@heaven', '$2y$10$JhLnX.EhidrcFZjvktYGt.3jQrv94THERB3mGUChF2oLUH2g5Ors.');, /*assHole*/
+
 /*создаем таблицу с ролями пользователей*/
 CREATE TABLE IF NOT EXISTS webPhp.roleVariants(
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
