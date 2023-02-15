@@ -17,18 +17,13 @@
 		<?php if($_SESSION['name_role'] == 'admin'):?>	
 			<div class="container" >
 				<div class="row my-3">
-					<div class="sidebarUser col-12 col-md-3 mb-2 mb-sm-0 me-5">
-						<ul >
-							<li><a href="#">Записи</a></li>
-							<li><a href="#">Пользователи</a></li>
-							<li><a href="#">Категории</a></li>
-						</ul>
-					</div>
+					<?php 
+						include $_SERVER['DOCUMENT_ROOT']."/app/templates/admin/navbar/navbar.php";
+						echo sidebar('users');
+					 ?>
+
 					<div class="posts col-12 col-md-7">
-						<div class="button row">
-							<a href="" class="col-12 btn btn-success mb-2">Создать пользователя</a>
-							<a href="" class="col-12 btn btn-primary mb-2">Управление пользователями</a>
-						</div>
+
 						<div class="h3 text-center">Управление пользователями</div>
 						<div class="row title-table ">
 							<div class="id col-1 text-center">ID</div>
