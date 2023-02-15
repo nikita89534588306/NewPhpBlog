@@ -12,9 +12,12 @@
 </head>
 <body>
     <?php include "./app/templates/header.php" ?>
+	<?php if($_SESSION['name_role'] == 'admin'):?>	
+		Админ панель
+	<?php else: ?>
+		Иди нахуй
+	<?php endif?>
 	
-	Админ панель
-
     <?php include "./app/templates/footer.php" ?>
 </body>
 </html>
