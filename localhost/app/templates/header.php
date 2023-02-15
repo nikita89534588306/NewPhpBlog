@@ -15,7 +15,7 @@
 						</a>
 						<ul class="user-action">
 							<?php if($_SESSION['name_role']=="admin"):?>
-								<li class="navbar-item"><a class="navbar-link" href="admin.php">Админ панель</a></li>
+								<li class="navbar-item"><a class="navbar-link" href="../admin/index.php">Админ панель</a></li>
 							<?php endif; ?>
 							<li class="navbar-item"><a class="navbar-link" href="./app/database/controllers/logout.php">Выход из аккаунта</a></li>
 						</ul>
