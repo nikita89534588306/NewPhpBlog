@@ -2,7 +2,8 @@
 	include './app/database/session.php';
 	include './app/database/connect.php';
 	include './app/database/db.php';
-	include './app/database/controllers/users.php'
+	include './app/database/controllers/users.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +12,6 @@
 </head>
 <body>
     <?php include "./app/templates/header.php" ?>
-
     <div class="container login">
 		<div class="row justify-content-center">
 			<div class="col-8 mt-4 mb-4">
