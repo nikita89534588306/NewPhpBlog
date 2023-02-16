@@ -44,7 +44,7 @@
 				$_SESSION['username'] = $dataUser['username'];
 				$_SESSION['name_role'] = $dataUser['name_role'];
 
-				if($dataUser['name_role']=="admin")  header('location: /admin.php');
+				if($dataUser['name_role']=="admin")  header('location: /admin/posts/index.php');
 				elseif($dataUser['name_role']=="user") header('location: /');
 				
 				

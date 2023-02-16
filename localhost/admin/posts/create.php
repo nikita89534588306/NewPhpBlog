@@ -38,14 +38,21 @@
 									<label for="title-post" class="form-label ps-2">Название статьи</label>
 									<input type="text" class="form-control" id="title-post" placeholder="Заголовок">
 								</div>
+								<style>
+									.ck-editor__editable_inline {
+										height: 200px;
+										overflow: scroll;
+									}
+								</style>
 								<div class="mb-2">
-									<label for="content-post" class="form-label ps-2">Текст статьи</label>
-									<textarea class="form-control" id="content-post" rows="6" placeholder="Ваш текст..."></textarea>
+									<label for="editor" class="form-label ps-2">Текст статьи</label>
+									<textarea class="form-control"  id="editor" rows="6" placeholder="Ваш текст..."></textarea>
 								</div>
 								<div class="mb-2">
 									<label for="formFile" class="form-label  ps-2"">Добавить файл</label>
 									<input class="form-control" type="file" id="formFile">
 								</div>
+								
 								<div class="mb-2">	
 									<label class="form-label ps-2">Выбрать категорию </label>
 									<select class="form-select" aria-label="Default select example">
@@ -71,5 +78,7 @@
 	</main>
 
     <?php include $_SERVER['DOCUMENT_ROOT']."/app/templates/footer.php" ?>
+	<script src="https://cdn.ckeditor.com/ckeditor5/36.0.0/classic/ckeditor.js"></script>
+	<script src='/app/js/script.js'></script>
 </body>
 </html>
