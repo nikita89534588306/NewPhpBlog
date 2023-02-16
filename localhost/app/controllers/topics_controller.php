@@ -1,6 +1,6 @@
 <?php
 	$errMsg = '';
-	$all_category = queryDB("SELECT * FROM category_posts;")->fetchAll();
+	// $all_category = queryDB("SELECT * FROM category_posts;")->fetchAll();
 
 	if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['topic-create'])){
 

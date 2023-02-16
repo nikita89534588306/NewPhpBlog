@@ -45,8 +45,8 @@
 			<li class='border-top p-0'></li>
 			<div class='collapse $actionCategory' id='category-collapse'>
 				<ul class='btn-toggle-nav list-unstyled fw-normal  small'>
-					<li class='sub-item p-2 ps-3'><a href='/admin/topic/index.php ' class='rounded text-white'>Управление категориями</a></li>
-					<li class='sub-item p-2 ps-3'><a href='/admin/topic/create.php' class='rounded text-white'>Добавить категорию</a></li>
+					<li class='sub-item p-2 ps-3'><a href='/admin/category/index.php ' class='rounded text-white'>Управление категориями</a></li>
+					<li class='sub-item p-2 ps-3'><a href='/admin/category/create.php' class='rounded text-white'>Добавить категорию</a></li>
 				</ul>
 				<li class='border-top p-0'></li>
 			</div>

@@ -2,7 +2,7 @@
 	include $_SERVER['DOCUMENT_ROOT']."/app/database/session.php";
 	include $_SERVER['DOCUMENT_ROOT'].'/app/database/connect.php';
 	include $_SERVER['DOCUMENT_ROOT'].'/app/database/db.php';
-	include $_SERVER['DOCUMENT_ROOT'].'/app/database/controllers/users.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/app/controllers/users.php';
 
 ?>
 <!DOCTYPE html>

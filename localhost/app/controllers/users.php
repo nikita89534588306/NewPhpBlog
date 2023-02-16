@@ -79,7 +79,7 @@
 						$_SESSION['username'] = $userData['username'];
 						$_SESSION['name_role'] = $userData['name_role'];
 		
-						if($userData['name_role']=="admin")  header('location: /admin.php');
+						if($userData['name_role']=="admin")  header('location: /admin/posts/index.php');
 						elseif($userData['name_role']=="user") header('location: /');
 					}
 				else $errMsg = "Данные пользователя введены неверно";

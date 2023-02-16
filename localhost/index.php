@@ -2,7 +2,7 @@
 	include './app/database/session.php';
 	include './app/database/connect.php';
 	include './app/database/db.php';
-	include './app/database/controllers/users.php';
+	// include './app/database/controllers/users.php';
 
 ?>
 <!DOCTYPE html>

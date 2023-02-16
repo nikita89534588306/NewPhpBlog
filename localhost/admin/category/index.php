@@ -1,9 +1,9 @@
 <?php
+	$errMsg = '';
 	include $_SERVER['DOCUMENT_ROOT']."/app/database/session.php";
 	include $_SERVER['DOCUMENT_ROOT'].'/app/database/connect.php';
 	include $_SERVER['DOCUMENT_ROOT'].'/app/database/db.php';
-	include $_SERVER['DOCUMENT_ROOT'].'/app/database/controllers/users.php';
-	include $_SERVER['DOCUMENT_ROOT'].'/app/database/controllers/topics_controller.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/app/controllers/category_controller/category_controller_index.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
