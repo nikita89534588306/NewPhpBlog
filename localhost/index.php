@@ -2,7 +2,7 @@
 	include './app/database/session.php';
 	include './app/database/connect.php';
 	include './app/database/db.php';
-	// include './app/database/controllers/users.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/app/controllers/category_controller/category_controller_index.php';
 
 ?>
 <!DOCTYPE html>
@@ -65,12 +65,9 @@
 					<div class="topic sidebar">
 						<h3 class='topic-header'>Категории</h3>
 						<div class='list'>
-							<div><a class='list-item'href='#'>Программирование</a></div>
-							<div><a class='list-item'href='#'>Дизайн</a></div>
-							<div><a class='list-item'href='#'>Визуализация</a></div>
-							<div><a class='list-item'href='#'>Кейсы</a></div>
-							<div><a class='list-item'href='#'>Мотивация</a></div>
-
+							<?php foreach($all_category as $key => $value): ?>
+								<div ><a class='list-item fs-5'href='#'><?=$value['name_category']?></a></div>
+							<?php endforeach; ?>
 						</div>
 					</div>
 					<div class="posts">

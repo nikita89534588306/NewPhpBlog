@@ -28,6 +28,7 @@
 		font-weight: 500;
 		margin: 10px;
 		& > div {
+			padding: 10px;
 			border-bottom: 1px solid #e0e0e0;
 		}
 		.list-item{
@@ -38,7 +39,7 @@
 		}
 		
 		& > div:hover{
-			padding-left: 10px;
+			padding-left: 20px;
 			transition: all 0.3s;
 			
 		}

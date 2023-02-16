@@ -2,7 +2,8 @@
 	include $_SERVER['DOCUMENT_ROOT']."/app/database/session.php";
 	include $_SERVER['DOCUMENT_ROOT'].'/app/database/connect.php';
 	include $_SERVER['DOCUMENT_ROOT'].'/app/database/db.php';
-
+	include $_SERVER['DOCUMENT_ROOT'].'/app/controllers/posts_controller/posts_controller_index.php';
+	//include $_SERVER['DOCUMENT_ROOT'].'/app/controllers/category_controller/category_controller_delete.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,14 +20,7 @@
 					<?php 
 						include $_SERVER['DOCUMENT_ROOT']."/app/templates/admin/navbar/navbar.php";
 						echo sidebar('posts');
-					 ?>
-					<!-- <div class="sidebarUser col-12 col-md-3 mb-2 mb-sm-0 me-5">
-						<ul >
-							<li><a href="#">Записи</a></li>
-							<li><a href="#">Пользователи</a></li>
-							<li><a href="#">Категории</a></li>
-						</ul>
-					</div> -->
+					?>
 					<div class="posts col-12 col-md-7">
 	
 						<div class="h3 text-center">Управление статьями</div>
@@ -37,16 +31,17 @@
 							<div class="action col-5 text-center">Редактировать</div>
 						</div>
 
-						<div class="row post">
-							<div class="id col-1 text-center">1</div>
-							<div class="title col-4 text-center">Какая то там статья</div>
-							<div class="author col-2 text-center">Админ</div>
-							<div class=" col-5 text-center d-flex  justify-content-around">
-								<div class="d-inline red text-center "><a style="color:darkturquoise" href="">edit</a></div>
-								<div class="d-inline del text-center "><a style="color:red" href="">delete</a></div>
+						<?php foreach($all_posts as $key => $post):?>
+							<div class="row post flex-nowrap">
+								<div class="id col-1 text-center"><?=$key + 1;?></div>
+								<div class="title col-4 text-center"><?=$post['title'];?></div>
+								<div class="author col-2 text-center">Админ</div>
+								<div class=" col-5 text-center d-flex  justify-content-around">
+									<div class="d-inline red text-center "><a style="color:darkturquoise" href="edit.php?id=<?=$post['id']?>">edit</a></div>
+									<div class="d-inline del text-center "><a style="color:red" href="./index.php?del_id=<?=$post['id']?>">delete</a></div>
+								</div>
 							</div>
-
-						</div>
+						<?php endforeach; ?>
 					</div>
 					
 				</div>
