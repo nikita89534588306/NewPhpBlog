@@ -15,7 +15,7 @@
 			$errMsg = "Имя категории не может быть короче 2-х символов";
 		else{
 			//проверяем есть ли в БД данное имя категории
-			$isNotUniqueСategory = queryDB("SELECT name_category FROM category_posts WHERE name_category = '$name_category' LIMIT 1")->fetch();
+			$isNotUniqueСategory = queryDB("SELECT name_category FROM category_posts WHERE name_category = '$name_category' AND deleted_at=0 LIMIT 1")->fetch();
 			//если есть выводим ошибку
 			if($isNotUniqueСategory){
 				$errMsg = "Данная категория уже существует";

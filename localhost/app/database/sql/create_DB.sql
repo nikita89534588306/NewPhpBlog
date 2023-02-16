@@ -55,11 +55,13 @@ ADD user_role INT DEFAULT(1) REFERENCES roleVariants(id);
 /*создаем катигории*/
 CREATE TABLE IF NOT EXISTS webPhp.category_posts(
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-	name_category VARCHAR(120) UNIQUE NOT NULL,
-	description_category TEXT NOT NULL
+	name_category VARCHAR(120) NOT NULL,
+	description_category TEXT NOT NULL,
+	deleted_at INT NOT NULL DEFAULT(0),
+	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 )
 /*фейковые категории*/
 INSERT INTO webPhp.category_posts (name_category, description_category) 
 VALUES 
-( 'БОЛЬШИЕ_ТАЧКИ', '');
-('мамка стифлера', 'я просто обажаю милф');
+( 'БОЛЬШИЕ_ТАЧКИ', ''),
+('мамка стифлера', 'я просто обОжаю милф');

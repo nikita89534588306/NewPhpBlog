@@ -4,6 +4,7 @@
 	include $_SERVER['DOCUMENT_ROOT'].'/app/database/connect.php';
 	include $_SERVER['DOCUMENT_ROOT'].'/app/database/db.php';
 	include $_SERVER['DOCUMENT_ROOT'].'/app/controllers/category_controller/category_controller_index.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/app/controllers/category_controller/category_controller_delete.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +37,7 @@
 								<div class="title col-5 text-center"><?=$topic['name_category'];?></div>
 								<div class=" col-5 text-center d-flex  justify-content-around">
 									<div class="d-inline red text-center "><a style="color:darkturquoise" href="edit.php?id=<?=$topic['id']?>">edit</a></div>
-									<div class="d-inline del text-center "><a style="color:red" href="">delete</a></div>
+									<div class="d-inline del text-center "><a style="color:red" href="./index.php?del_id=<?=$topic['id']?>">delete</a></div>
 								</div>
 							</div>
 						<?php endforeach; ?>
