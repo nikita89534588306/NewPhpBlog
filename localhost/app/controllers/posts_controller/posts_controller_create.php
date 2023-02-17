@@ -1,24 +1,34 @@
 <?php
-
-	if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_post'])){
+	$errMsg = [];
+	if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_post']))
+	{
 
 		$title = trim($_POST['title']);
 		$content = trim($_POST['content']);
 		$category = trim($_POST['category']);
-		$img = trim($_POST['img']);
-		if($_POST['isPublished']!==null) $status = 1;
-		else $status = 0;
+
+		$imgName = (!empty($_FILES['img']['name'])) ? time()."_".$_FILES['img']['name'] : '';
+		$fileTmpName = (!empty($_FILES['img']['name'])) ? $_FILES['img']['tmp_name'] : '';
+		$fileType =  (!empty($_FILES['img']['name'])) ? $_FILES['img']['type'] : '';
+		$destination = (!empty($_FILES['img']['name'])) ? "C:\ospanel\domains\localhost\app\img\posts\\".$imgName : '';
+
 
 		if( $title === ''|| $content  === ''|| $category  === '')
-			$errMsg = "Заголовок, текcт и категория статьи являются обязательными полями";	
+			array_push($errMsg,"Заголовок, текcт и категория статьи являются обязательными полями");	
 		else if(mb_strlen($title, 'UTF8') < 2)
-			$errMsg = "Заголовок не может быть короче 2-х символов";
-		else{
+			array_push($errMsg,"Заголовок не может быть короче 2-х символов");
+		if($fileTmpName!==''&&!(strpos($fileType, 'image')  !== false))
+			array_push($errMsg, "Добавить можно только изображение");
+
+		if(count($errMsg)===0)
+		{
 
 			$user_id = $_SESSION['id'];
+			if($_POST['isPublished']!==null) $status = 1; else $status = 0;
+			if(!empty($_FILES['img']['name'])) $result = move_uploaded_file($fileTmpName, $destination);
 			queryDB("
 				INSERT INTO webPhp.posts (user_id, title, img, content, id_category, status_post) 
-					VALUES ('$user_id', '$title','$img', '$content', '$category', '$status') 
+					VALUES ('$user_id', '$title','$imgName', '$content', '$category', '$status') 
 			"); 
 
 			if($_SESSION['name_role']=="admin")  header('location: /admin/posts/index.php');
@@ -26,7 +36,11 @@
 		}		
 
 	}
-	else if($_SERVER['REQUEST_METHOD'] === 'GET'){
-		$name_category = '';
-		$description_category = '';
+	else if($_SERVER['REQUEST_METHOD'] === 'GET')
+	{
+
+		$title = '';
+		$content = '';
+		$category = '';
+
 	}

@@ -25,10 +25,11 @@
 					<div class="posts p-0 col-12 col-md-7">
 
 					<div class="h3 text-center mt-3 mb-0">Добавить статью</div>
-						<form class="row add-post mt-1 p-0" method="post" action="/admin/posts/create.php">
+						<?php include $_SERVER['DOCUMENT_ROOT'].'/app/helps/errInfo.php' ?>
+						<form class="row add-post mt-1 p-0" method="post" action="/admin/posts/create.php" enctype="multipart/form-data">
 							<div class="mb-2">
 								<label for="title-post" class="form-label ps-2">Название статьи</label>
-								<input name="title" type="text" class="form-control" id="title-post" placeholder="Заголовок">
+								<input name="title" type="text" value="<?=$title?>" class="form-control" id="title-post" placeholder="Заголовок">
 							</div>
 							<style>
 								.ck-editor__editable_inline {
@@ -38,7 +39,7 @@
 							</style>
 							<div class="mb-2">
 								<label for="editor" class="form-label ps-2">Текст статьи</label>
-								<textarea name="content" class="form-control"  id="editor" rows="6" placeholder="Ваш текст..."></textarea>
+								<textarea name="content" class="form-control"  id="editor" rows="6" placeholder="Ваш текст..."><?=$content?></textarea>
 							</div>
 							<div class="mb-2">
 								<label for="formFile" class="form-label  ps-2"">Добавить файл</label>
@@ -51,7 +52,7 @@
 									<select name="category" class=" form-select" aria-label="Default select example">
 									<!-- <option selected>Выберете категорию</option> -->
 									<?php foreach($all_category as $number => $categoty) : ?>
-										<option value="<?=$categoty['id']?>"><?=$categoty['name_category']?></option>
+										<option value="<?=$categoty['id']?>" <?php if(isset($_POST['category'])&&($categoty['id']==$_POST['category'])) echo "selected"?>><?=$categoty['name_category']?></option>
 									<?php endforeach?>
 									</select>
 								</div>
