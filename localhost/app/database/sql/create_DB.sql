@@ -69,29 +69,32 @@ VALUES
 /*создаем таблицу постов*/
 CREATE TABLE IF NOT EXISTS webPhp.posts(
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+
 	user_id INT NOT NULL,
 	title VARCHAR(255) NOT NULL,
-	img VARCHAR(255) NOT NULL,
+	img VARCHAR(255) NOT NULL DEFAULT "",
 	content TEXT NOT NULL,
 	status_post TINYINT NOT NULL DEFAULT(1),
+	id_category INT NOT NULL,
 	deleted_at INT NOT NULL DEFAULT(0),
 	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 )
+
 /*фейковые посты*/
-INSERT INTO webPhp.posts (user_id, title, img, content) 
+INSERT INTO webPhp.posts (user_id, title, content, id_category) 
 VALUES 
 (1 , 
 "Бизнес-план для открытия компьютерного сервиса",
-"", 
 "Консультации по выбору компьютеров и программного обеспечения
 Мы помогаем нашим клиентам выбрать правильные компьютеры и программное обеспечение, которые соответствуют их потребностям.
 
 Удаленная техническая поддержка
-Мы предоставляем услуги по удаленной технической поддержке, чтобы быстро и эффективно решать проблемы, возникающие у наших клиентов."
+Мы предоставляем услуги по удаленной технической поддержке, чтобы быстро и эффективно решать проблемы, возникающие у наших клиентов.", 1
 ),
+
 (2 , 
 "Райский уголок из Лего",
-"", 
-"В этом году, наверное, каждый мечтал сбежать от всех новостей на уединённый островок посреди океана. Но ведь мы всегда можем сделать такой из Лего!"
+"В этом году, наверное, каждый мечтал сбежать от всех новостей на уединённый островок посреди океана. Но ведь мы всегда можем сделать такой из Лего!", 1
 );
+
 
