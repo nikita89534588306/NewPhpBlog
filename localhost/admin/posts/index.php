@@ -35,7 +35,7 @@
 							<div class="row post flex-nowrap">
 								<div class="id col-1 text-center"><?=$key + 1;?></div>
 								<div class="title col-4 text-center"><?=$post['title'];?></div>
-								<div class="author col-2 text-center"><?=$post['user_id'];?></div>
+								<div class="author col-2 text-center"><?=$post['username'];?></div>
 								<div class=" col-5 text-center d-sm-flex  justify-content-around">
 									<div class="p-1 p-md-2 d-sm-inline red text-center "><a style="color:darkturquoise" href="edit.php?id=<?=$post['id']?>">edit</a></div>
 									<div class="p-1 p-md-2 d-sm-inline del text-center "><a style="color:red" href="./index.php?del_id=<?=$post['id']?>">delete</a></div>

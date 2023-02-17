@@ -86,7 +86,7 @@
 											<?=$post['title']?>
 										</a>
 									</h3>
-									<i class='name-author fa fa-user'>Имя автора</i>
+									<i class='name-author fa fa-user'><?=$post["username"]?></i>
 									<i class='data-post fa fa-calendar'>May 21, 2022</i>
 									<div class="text">
 										<div style="display:inline-block" class='preview-text'>
