@@ -77,8 +77,13 @@
 		}
 	}
 	.content{
+		max-height: 300px;
+		overflow: hidden;
 		@media (min-width:767px){
 			width: 70%;
+			height: 200px;
+			
+			padding-right: 10px;
 		}
 		.title{
 			margin: 20px 0 5px 0;
@@ -99,6 +104,7 @@
 			margin: 0 10px;
 		}
 		.text *{
+
 			text-align:justify;
 			text-indent: 30px;
 		}

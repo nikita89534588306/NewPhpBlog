@@ -3,7 +3,7 @@
 	include './app/database/connect.php';
 	include './app/database/db.php';
 	include $_SERVER['DOCUMENT_ROOT'].'/app/controllers/category_controller/category_controller_index.php';
-
+	include $_SERVER['DOCUMENT_ROOT'].'/app/controllers/posts_controller/posts_controller_index.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,83 +70,33 @@
 							<?php endforeach; ?>
 						</div>
 					</div>
-					<div class="posts">
-						<div class="post-card">
-							<div class="img">
-								<img  src="./app/img/1645469031_35-sportishka-com-p-zimnii-baikal-turizm-krasivo-foto-35.jpg" 
-									alr='...' 
-									>
-							</div>
-							<div class="content">
-								<h3 class='title'>
-									<a href='/single.php'>
-										Траливалт бблабалабла авоывомлжва
-									</a>
-								</h3>
-								
-								<i class='name-author fa fa-user'>Имя автора</i>
-								<i class='data-post fa fa-calendar'>May 21, 2022</i>
-								<div class="text">
-									<p class='preview-text'>
-										Lorem ipsum dolor sit, amet consectetur 
-										adipisicing elit. Ut iure maxime blanditiis et, repellendus 
-										possimus voluptas eaque eligendi itaque cum!
-									</p>
-								</div>
-								
-							</div>
-						</div>
-						
-						<div class="post-card">
-							<div class="img">
-								<img  src="./app/img/1670662446_44-almode-ru-p-samii-krasivii-makiyazh-na-novii-god-45.jpg" " 
-									alr='...' 
-									>
-							</div>
-							<div class="content">
-								<h3 class='title'>
-									<a href='/single.php'>
-										Траливалт бблабалабла авоывомлжва
-									</a>
-								</h3>
-								
-								<i class='name-author fa fa-user'>Имя автора</i>
-								<i class='data-post fa fa-calendar'>May 21, 2022</i>
-								<div class="text">
-									<p class='preview-text'>
-										Lorem ipsum dolor sit, amet consectetur 
-										adipisicing elit. Ut iure maxime blanditiis et, repellendus 
-										possimus voluptas eaque eligendi itaque cum!
-									</p>
-								</div>
-							</div>	
-						</div>
 
-						<div class="post-card">
-							<div class="img">
-								<img  src="./app/img/water-cafe.jpg""
-									alr='...' 
-									>
-							</div>
-							<div class="content">
-								<h3 class='title'>
-									<a href='/single.php'>
-										Траливалт бблабалабла авоывомлжва
-									</a>
-								</h3>
-								
-								<i class='name-author fa fa-user'>Имя автора</i>
-								<i class='data-post fa fa-calendar'>May 21, 2022</i>
-								<div class="text">
-									<p class='preview-text'>
-										Lorem ipsum dolor sit, amet consectetur 
-										adipisicing elit. Ut iure maxime blanditiis et, repellendus 
-										possimus voluptas eaque eligendi itaque cum!
-									</p>
+					
+					<div class="posts">
+						<?php foreach($all_posts as $key => $post) : ?>
+							<div class="post-card">
+								<div class="img">
+									<img  src="./app/img/1645469031_35-sportishka-com-p-zimnii-baikal-turizm-krasivo-foto-35.jpg" 
+										alr='...' 
+										>
 								</div>
-								
+								<div class="content">
+									<h3 class='title'>
+										<a href='/single.php'>
+											<?=$post['title']?>
+										</a>
+									</h3>
+									<i class='name-author fa fa-user'>Имя автора</i>
+									<i class='data-post fa fa-calendar'>May 21, 2022</i>
+									<div class="text">
+										<div style="display:inline-block" class='preview-text'>
+											<?=$post['content']?>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
+						<?php endforeach;?>
+
 					</div>
 				</div>
 			</div>

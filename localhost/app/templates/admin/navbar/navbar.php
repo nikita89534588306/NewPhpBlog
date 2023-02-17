@@ -4,7 +4,7 @@
 		if($nameAction=='users') {$actionPost="";$actionUsers="show";$actionCategory=""; }
 		if($nameAction=='topic') {$actionPost="";$actionUsers="";$actionCategory="show"; }
 		return "
-<div class='admin-sidebar col-12 col-md-3 p-0 me-5' >
+<div class='admin-sidebar col-12 col-md-3 p-0 me-sm-5' >
 
     <ul class='list-unstyled ps-0'>
 		<li class='p-0'>

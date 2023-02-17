@@ -6,7 +6,8 @@
 		$content = trim($_POST['content']);
 		$category = trim($_POST['category']);
 		$img = trim($_POST['img']);
-
+		if($_POST['isPublished']!==null) $status = 1;
+		else $status = 0;
 
 		if( $title === ''|| $content  === ''|| $category  === '')
 			$errMsg = "Заголовок, текcт и категория статьи являются обязательными полями";	
@@ -16,11 +17,11 @@
 
 			$user_id = $_SESSION['id'];
 			queryDB("
-				INSERT INTO webPhp.posts (user_id, title, img, content, id_category) 
-					VALUES ('$user_id', '$title','$img', '$content', '$category') 
+				INSERT INTO webPhp.posts (user_id, title, img, content, id_category, status_post) 
+					VALUES ('$user_id', '$title','$img', '$content', '$category', '$status') 
 			"); 
 
-			if($_SESSION['name_role']=="admin")  header('location: /admin/category/index.php');
+			if($_SESSION['name_role']=="admin")  header('location: /admin/posts/index.php');
 			elseif($_SESSION['name_role']=="user") header('location: /');
 		}		
 

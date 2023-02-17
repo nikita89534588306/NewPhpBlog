@@ -35,10 +35,13 @@
 							<div class="row post flex-nowrap">
 								<div class="id col-1 text-center"><?=$key + 1;?></div>
 								<div class="title col-4 text-center"><?=$post['title'];?></div>
-								<div class="author col-2 text-center">Админ</div>
-								<div class=" col-5 text-center d-flex  justify-content-around">
-									<div class="d-inline red text-center "><a style="color:darkturquoise" href="edit.php?id=<?=$post['id']?>">edit</a></div>
-									<div class="d-inline del text-center "><a style="color:red" href="./index.php?del_id=<?=$post['id']?>">delete</a></div>
+								<div class="author col-2 text-center"><?=$post['user_id'];?></div>
+								<div class=" col-5 text-center d-sm-flex  justify-content-around">
+									<div class="p-1 p-md-2 d-sm-inline red text-center "><a style="color:darkturquoise" href="edit.php?id=<?=$post['id']?>">edit</a></div>
+									<div class="p-1 p-md-2 d-sm-inline del text-center "><a style="color:red" href="./index.php?del_id=<?=$post['id']?>">delete</a></div>
+									<?php if($post['status_post']==1) {
+										echo '<div class="p-1 p-md-2 d-sm-inline stat text-center "><a style="color:blue" href="./index.php?del_id='.$post['id'].'">publish</a></div>';
+									} else echo '<div class="p-1 p-md-2 d-sm-inline stat text-center "><a style="color:black" href="./index.php?del_id='.$post['id'].'">hidden</a></div>';?>
 								</div>
 							</div>
 						<?php endforeach; ?>
