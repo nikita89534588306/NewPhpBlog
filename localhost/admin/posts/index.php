@@ -3,7 +3,7 @@
 	include $_SERVER['DOCUMENT_ROOT'].'/app/database/connect.php';
 	include $_SERVER['DOCUMENT_ROOT'].'/app/database/db.php';
 	include $_SERVER['DOCUMENT_ROOT'].'/app/controllers/posts_controller/posts_controller_index.php';
-	//include $_SERVER['DOCUMENT_ROOT'].'/app/controllers/category_controller/category_controller_delete.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/app/controllers/category_controller/category_controller_delete.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
