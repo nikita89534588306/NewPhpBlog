@@ -3,7 +3,7 @@
 	include $_SERVER['DOCUMENT_ROOT'].'/app/database/connect.php';
 	include $_SERVER['DOCUMENT_ROOT'].'/app/database/db.php';
 	include $_SERVER['DOCUMENT_ROOT'].'/app/controllers/posts_controller/posts_controller_index.php';
-	include $_SERVER['DOCUMENT_ROOT'].'/app/controllers/category_controller/category_controller_delete.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/app/controllers/posts_controller/posts_controller_delete.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,8 +40,8 @@
 									<div class="p-1 p-md-2 d-sm-inline red text-center "><a style="color:darkturquoise" href="edit.php?id=<?=$post['id']?>">edit</a></div>
 									<div class="p-1 p-md-2 d-sm-inline del text-center "><a style="color:red" href="./index.php?del_id=<?=$post['id']?>">delete</a></div>
 									<?php if($post['status_post']==1) {
-										echo '<div class="p-1 p-md-2 d-sm-inline stat text-center "><a style="color:blue" href="./index.php?del_id='.$post['id'].'">publish</a></div>';
-									} else echo '<div class="p-1 p-md-2 d-sm-inline stat text-center "><a style="color:black" href="./index.php?del_id='.$post['id'].'">hidden</a></div>';?>
+										echo '<div class="p-1 p-md-2 d-sm-inline stat text-center "><a style="color:blue" href="./edit.php?publish=0&pub_id='.$post['id'].'">publish</a></div>';
+									} else echo '<div class="p-1 p-md-2 d-sm-inline stat text-center "><a style="color:black" href="./edit.php?publish=1&pub_id='.$post['id'].'">hidden</a></div>';?>
 								</div>
 							</div>
 						<?php endforeach; ?>

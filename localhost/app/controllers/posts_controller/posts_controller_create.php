@@ -5,6 +5,7 @@
 		// echo "<strong>Массив с данными ПОСТ</strong><br>";
 		// printData($_POST);
 		// die($_POST);
+		
 		$title = trim($_POST['title']);
 		$content = trim($_POST['content']);
 		$category = trim($_POST['category']);
@@ -53,6 +54,5 @@
 		$title = '';
 		$content = '';
 		$category = '';
-
 	}
 

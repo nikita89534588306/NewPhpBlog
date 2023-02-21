@@ -6,6 +6,13 @@
 		extract($post);
 		// printData($post);
 	}
+	else if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['pub_id'])){
+		$id = $_GET['pub_id'];
+		$conditionPost = $_GET['publish'];
+		queryDB("UPDATE webPhp.posts SET status_post = '$conditionPost' WHERE id='$id'; "); 
+		if($_SESSION['name_role']=="admin")  header('location: /admin/posts/index.php');
+		elseif($_SESSION['name_role']=="user") header('location: /');
+	}
 	else if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_post']))
 	{
 		// echo "<strong>Данные из массива POST </strong><br>";
