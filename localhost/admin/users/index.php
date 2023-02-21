@@ -31,8 +31,19 @@
 							<div class="author col-2 text-center">Роль</div>
 							<div class="action col-5 text-center">Редактировать</div>
 						</div>
-
-						<div class="row post">
+						<?php foreach($all_users as $key=> $user): ?>
+							<div class="row post">
+								<div class="id col-1 text-center"><?=$user['id_user']?></div>
+								<div class="title col-4 text-center"><?=$user['name_user']?></div>
+								<div class="author col-2 text-center"><?=$user['role_user']?></div>
+								<div class=" col-5 text-center d-flex  justify-content-around">
+									<div class="d-inline red text-center "><a style="color:darkturquoise" href="/admin/users/edit.php?id=<?=$user['id_user']?>">edit</a></div>
+									<div class="d-inline del text-center "><a style="color:red" href="/admin/users/edit.php?del_id=<?=$user['id_user']?>">delete</a></div>
+								</div>
+							</div>
+						<?php endforeach; ?>
+						<!-- 
+							<div class="row post">
 							<div class="id col-1 text-center">1</div>
 							<div class="title col-4 text-center">Дядя Вася</div>
 							<div class="author col-2 text-center">Админ</div>
@@ -40,8 +51,8 @@
 								<div class="d-inline red text-center "><a style="color:darkturquoise" href="">edit</a></div>
 								<div class="d-inline del text-center "><a style="color:red" href="">delete</a></div>
 							</div>
-
-						</div>
+-->
+						</div> 
 					</div>
 					
 				</div>

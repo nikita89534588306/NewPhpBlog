@@ -17,9 +17,7 @@
 			<div class="col-8 mt-4 mb-4">
 				<div class="header h2"  >Введите данные аккаунта</div>
 				<!-- <div class="messege-error alert alert-danger" role="alert">Авария если что не так</div> -->
-				<?php if($errMsg !== '')
-					echo '<div class="messege-error alert alert-danger" role="alert">'.$errMsg.'</div>'
-				?>
+				<?php include $_SERVER['DOCUMENT_ROOT'].'/app/helps/errInfo.php' ?>
 				<form class="data-user row my-2" method="post" action="login.php">
 
 					<div class="mb-3">

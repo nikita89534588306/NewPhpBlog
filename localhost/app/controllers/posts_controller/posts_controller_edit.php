@@ -17,7 +17,7 @@
 	{
 		// echo "<strong>Данные из массива POST </strong><br>";
 		// printData($_POST);
-		// die();
+
 		$id = trim($_POST['id']);
 		$title = trim($_POST['title']);
 		$content = trim($_POST['content']);
@@ -34,7 +34,7 @@
 		echo "<strong>Данные файла картинки </strong><br>";
 
 		// printData($_FILES['img_post']);
-		// die();
+
 
 		if(!empty($img_post['name'])&&!(strpos($img_post['type'], 'image')  !== false))
 		 	array_push($errMsg, "Добавить можно только изображение");

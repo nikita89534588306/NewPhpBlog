@@ -28,7 +28,7 @@
 						<div class="h3 text-center mt-3 mb-0">Добавление пользователя</div>
 
 						<div class="row add-post mt-1">
-							<form class="p-0">
+							<form class="p-0" method="post" action="/admin/users/create.php" >
 								
 								<div class="mb-3">
 									<label for="loginReg" class="form-label ps-2">Ваш логин</label>
@@ -49,15 +49,21 @@
 									<label for="passwordConfirmREG" class="form-label ps-2">Подтвердите пароль</label>
 									<input name="passwordConfirm" type="password" class="form-control" id="passwordConfirmREG">
 								</div>
-								<div class="mb-3">
+								<div class="m-3 d-flex align-items-center">
+									<input style="margin: 0 5px 0 0" class="form-check-input " type="checkbox" name='isAdmin' value="1" id="flexCheckDefault">
+									<label class="form-check-label" for="flexCheckDefault">
+										Сделать админом
+									</label>
+								</div>
+								<!-- <div class="mb-3">
 									<label class="form-label ps-2">Роль пользователя</label>
 									<select class="form-select" aria-label="Default select example">
 										<option value="1" selected>User</option>
 										<option value="2">Admin</option>
 									</select>
-								</div>
+								</div> -->
 								<div class='d-flex justify-content-center mt-4 mb-3'>
-									<button type="button" style="width: 33%;" class="btn btn-warning">Создать пользователя</button>
+									<button type="submit" name="btn-reg" style="width: 33%;" class="btn btn-warning">Создать пользователя</button>
 								</div>
 							</form>
 						</div>
