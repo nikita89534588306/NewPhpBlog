@@ -13,13 +13,11 @@
 <body>
     <?php include "./app/templates/header.php" ?>
 
-    <div class="container login">
-		<div class="row justify-content-center">
+    <div style="min-height: 900px; "class="container login d-flex ">
+		<div class="row justify-content-center align-items-center">
 			<div class="col-8 mt-4 mb-4">
 				<div class="header h2"  >Регистрация на форуме</div>
-				<?php if($errMsg !== '')
-					echo '<div class="messege-error alert alert-danger" role="alert">'.$errMsg.'</div>'
-				?>
+				<?php include $_SERVER['DOCUMENT_ROOT'].'/app/helps/errInfo.php' ?>
 				<form class="data-user row my-2" method="post" action="./reg.php">
 
 					<div class="mb-3">

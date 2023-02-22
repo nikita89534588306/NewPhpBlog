@@ -1,7 +1,21 @@
 <?php
 	$errMsg = [];
-
-
+	if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['del_id_user'])){
+		$id = $_GET['del_id_user'];
+		
+		printData($id);
+		
+		printData("DELETE FROM users 
+		WHERE id='$id'");
+		// die();
+		queryDB(
+			"DELETE FROM users 
+				WHERE id='$id'"
+		);
+		if($_SESSION['name_role']=="admin")  header('location: /admin/users/index.php');
+		elseif($_SESSION['name_role']=="user") header('location: /');
+	}	
+	//create
 	$all_users = queryDB(
 		"SELECT 
 			users.id AS id_user, 
@@ -11,6 +25,7 @@
 		FROM users
 		JOIN roleVariants ON users.user_role = roleVariants.id"
 	)->fetchAll();
+
 
 	if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])){
 		//printData($_GET);
@@ -97,6 +112,8 @@
 			elseif($_SESSION['name_role']=="user") header('location: /');
 		}
 	}
+
+
 	if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn-reg'])){
 
 		//извлекаем данные из массива POST и отчищаем от пробелов
@@ -128,7 +145,7 @@
 			$isNotUniqueEmail = queryDB("SELECT id FROM users WHERE email = '$email' LIMIT 1")->fetch();
 			//если есть выводим ошибку
 			if($isNotUniqueEmail) 
-				$errMsg = "Пользователь с данной почтой уже зарегестрирован!";
+			array_push($errMsg , "Пользователь с данной почтой уже зарегестрирован!");
 		}
 
 		echo "<br><strong>Количество ошибок валидации: " .count($errMsg) ."</strong><br>";

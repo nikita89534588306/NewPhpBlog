@@ -18,3 +18,39 @@
     }
 
 }
+.findPost_index{
+	width: 66%;
+	margin-bottom: 12px;
+	@media (max-width: 1023px) {
+		width: 100%;
+		
+	}
+	
+}
+.findPost_index.adaptiv > input{
+	width: 100%;
+		
+	@media (min-width: 767px) {
+		width: 80.2%;
+
+	}
+}
+.findPost_index.adaptiv > label{
+	width: 100%;
+	@media (min-width: 767px) {
+		width: 19%;
+		margin: 0;
+	}
+}
+.findPost_index > input{
+
+	margin: 0;
+	padding: 0;
+	border: 1px solid silver;
+	border-radius: 3px;
+	padding-left: 10px;
+}
+.findPost_index > label{
+
+	margin: 0 0 10px 5px;
+}

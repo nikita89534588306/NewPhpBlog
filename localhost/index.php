@@ -4,6 +4,7 @@
 	include './app/database/db.php';
 	include $_SERVER['DOCUMENT_ROOT'].'/app/controllers/category_controller/category_controller_index.php';
 	include $_SERVER['DOCUMENT_ROOT'].'/app/controllers/posts_controller/posts_controller_index.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,41 +13,30 @@
 </head>
 <body>
     <?php include "./app/templates/header.php" ?>
-	<main class="container">
+	<main style="min-height: 1700px;"class="container ">
 
 			<div class="topPost" >
 				<div class="row">
 					<h2 class=" topPost-sliderTitle">
-						Топ публикации
+						Последние публикации
 					</h2>
 				</div>
 				<div id="carouselExampleCaptions" class="topPost-carousel carousel slide">
 					<div class="carousel-inner">
-						<div class="carousel-item active ">
-							<img src="./app/img/1645469031_35-sportishka-com-p-zimnii-baikal-turizm-krasivo-foto-35.jpg" 
-								class="d-block img-fluid"  alt="..."
-							>
-							<div class="carousel-caption d-block">
-								<h5>First slide label</h5>
-								<p>Some representative placeholder content for the first slide.</p>
+						<?php $lastPosts = $last_post ?>
+						<?php for($numberPost=0;$numberPost<count($lastPosts);$numberPost++) : ?>
+							<div class="carousel-item <?php if($numberPost==0) echo "active"; ?>">
+								<img src="./app/img/<?php if($lastPosts[$numberPost]['img']!== '') echo 'posts/'.$lastPosts[$numberPost]['img']; else echo "imgNotFound.png";?>" 
+								class="d-block img-fluid"  alt="...">
+
+								<div style="background-color: black; right:0; left:0;opacity:0.8;"class="carousel-caption d-flex justify-content-center">
+									<div class="">
+										<h1 style="opacity:1;"><?=$lastPosts[$numberPost]['title']?></h1>
+										<p>Some representative placeholder content for the first slide.</p>
+									</div>
+								</div>
 							</div>
-						</div>
-						<div class="carousel-item" >
-							<img src="./app/img/1670662446_44-almode-ru-p-samii-krasivii-makiyazh-na-novii-god-45.jpg" 
-								class="d-block " alt="..." >
-							<div class="carousel-caption  d-block">
-								<h5>Second slide label</h5>
-								<p>Some representative placeholder content for the second slide.</p>
-							</div>
-							</div>
-						<div class="carousel-item">
-							<img src="./app/img/water-cafe.jpg" 
-							class="d-block " alt="..." >
-							<div class="carousel-caption  d-block">
-								<h5>Third slide label</h5>
-								<p>Some representative placeholder content for the third slide.</p>
-							</div>
-						</div>
+						<?endfor;?>
 					</div>
 					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
 						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -60,9 +50,18 @@
 			</div>
 			
 			<div class="last-posts con" >
-				<h2 class="header">Последние публикации</h2>
+				<h2 class="header">Публикации</h2>
 				<div class="content">
+
+					<form class="findPost_index adaptiv" method="post" action="/index.php">
+							
+						<label for="finder" class=" ">Найти запись: </label>
+						<input type="text"  class="search py-1"  name="findPost"  id="finder" placeholder="Поиск...">
+							
+					</form>
+					<!--  -->
 					<div class="topic sidebar">
+						
 						<h3 class='topic-header'>Категории</h3>
 						<div class='list'>
 							<?php foreach($all_category as $key => $value): ?>
@@ -74,20 +73,21 @@
 					
 					<div class="posts">
 						<?php foreach($all_posts as $key => $post) : ?>
+							<?if($post['status_post']):?>
 							<div class="post-card">
 								<div class="img">
-									<img  src="./app/img/1645469031_35-sportishka-com-p-zimnii-baikal-turizm-krasivo-foto-35.jpg" 
+									<img  src="./app/img/<?php if($post['img']!== '') echo 'posts/'.$post['img']; else echo "imgNotFound.png"?>" 
 										alr='...' 
 										>
 								</div>
 								<div class="content">
 									<h3 class='title'>
-										<a href='/single.php'>
+										<a href='/single_post.php?id_post=<?=$post['id']?>'>
 											<?=$post['title']?>
 										</a>
 									</h3>
 									<i class='name-author fa fa-user'><?=$post["username"]?></i>
-									<i class='data-post fa fa-calendar'>May 21, 2022</i>
+									<i class='data-post fa fa-calendar'><?=$post["created_at"]?></i>
 									<div class="text">
 										<div style="display:inline-block" class='preview-text'>
 											<?=$post['content']?>
@@ -95,6 +95,7 @@
 									</div>
 								</div>
 							</div>
+							<?php endif;?>
 						<?php endforeach;?>
 
 					</div>

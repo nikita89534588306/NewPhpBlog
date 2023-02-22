@@ -38,7 +38,7 @@
 								<div class="author col-2 text-center"><?=$user['role_user']?></div>
 								<div class=" col-5 text-center d-flex  justify-content-around">
 									<div class="d-inline red text-center "><a style="color:darkturquoise" href="/admin/users/edit.php?id=<?=$user['id_user']?>">edit</a></div>
-									<div class="d-inline del text-center "><a style="color:red" href="/admin/users/edit.php?del_id=<?=$user['id_user']?>">delete</a></div>
+									<div class="d-inline del text-center "><a style="color:red" href="/admin/users/edit.php?del_id_user=<?=$user['id_user']?>">delete</a></div>
 								</div>
 							</div>
 						<?php endforeach; ?>

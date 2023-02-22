@@ -11,9 +11,11 @@
     <?php include "./app/templates/head.php" ?>
 </head>
 <body>
+	
     <?php include "./app/templates/header.php" ?>
+	<main style="min-height: 900px; "class="container login  d-flex align-items-center ">
     <div class="container login">
-		<div class="row justify-content-center">
+		<div class="row justify-content-center  ">
 			<div class="col-8 mt-4 mb-4">
 				<div class="header h2"  >Введите данные аккаунта</div>
 				<!-- <div class="messege-error alert alert-danger" role="alert">Авария если что не так</div> -->
@@ -38,7 +40,7 @@
 			</div>
 		</div>
 	</div>
-
+	</main>
     <?php include "./app/templates/footer.php" ?>
 </body>
 </html>
