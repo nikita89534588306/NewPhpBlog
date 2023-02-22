@@ -51,7 +51,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['findPost'])){
 	FROM posts
 	JOIN users ON posts.user_id = users.id
 	WHERE deleted_at=0
-		AND posts.title LIKE '%$text%' 
-		OR  posts.content LIKE '%$text%' ")->fetchAll();
+		AND (posts.title LIKE '%$text%' 
+		OR  posts.content LIKE '%$text%') ")->fetchAll();
 	
 }
