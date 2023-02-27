@@ -23,7 +23,7 @@
 				</div>
 				<div id="carouselExampleCaptions" class="topPost-carousel carousel slide">
 					<div class="carousel-inner">
-						<?php $lastPosts = $last_post ?>
+						<?php $lastPosts = $posts_for_carusel ?>
 						<?php for($numberPost=0;$numberPost<count($lastPosts);$numberPost++) : ?>
 							<div class="carousel-item <?php if($numberPost==0) echo "active"; ?>">
 								<img src="./app/img/<?php if($lastPosts[$numberPost]['img']!== '') echo 'posts/'.$lastPosts[$numberPost]['img']; else echo "imgNotFound.png";?>" 
@@ -50,13 +50,13 @@
 			</div>
 			
 			<div class="last-posts con" >
-				<h2 class="header">Публикации</h2>
+				<h2 class="header"><a style="color: #5c5b5b;"href='/index.php'>Публикации</a></h2>
 				<div class="content">
 
-					<form class="findPost_index adaptiv" method="post" action="/index.php">
+					<form class="findPost_index adaptiv" method="get" action="/index.php">
 							
 						<label for="finder" class=" ">Найти запись: </label>
-						<input type="text"  class="search py-1"  name="findPost"  id="finder" placeholder="Поиск...">
+						<input type="text"  class="search py-1"  name="findPost" id="finder" value="<?php if(isset($_GET['findPost'])) echo $_GET['findPost']; ?>" placeholder="Поиск...">
 							
 					</form>
 					<!--  -->
@@ -65,7 +65,9 @@
 						<h3 class='topic-header'>Категории</h3>
 						<div class='list'>
 							<?php foreach($all_category as $key => $value): ?>
-								<div ><a class='list-item fs-5'href='#'><?=$value['name_category']?></a></div>
+								<div ><a class='list-item fs-5'
+									href='/index.php?<?php if(isset($_GET['findPost'])) echo "findPost=".$_GET['findPost']."&"; ?>category=<?=$value['id']?>'>
+									<?=$value['name_category']?></a></div> 
 							<?php endforeach; ?>
 						</div>
 					</div>
@@ -101,7 +103,54 @@
 					</div>
 				</div>
 			</div>
-			
+			<?php 	
+
+				$maxSizePages = 2;
+				if($maxSizePages>$total_pages) $maxSizePages = $total_pages;
+				$offsetPages = $getPage - $maxSizePages;
+				$nubmerfirstPage = ($maxSizePages > $getPage  ) ? 1 : 1 + $offsetPages;
+				$nubmerlastPage = ($getPage> $maxSizePages) ? $getPage : $maxSizePages ;
+
+			?>
+			<nav aria-label="Page navigation example">
+				<ul class="pagination">
+				
+						<?php if($getPage >1) : ?> 
+						<li class="page-item">
+							<a class="page-link" href="http://localhost/index.php?<?php if(isset($_GET['findPost'])) echo "findPost=".$_GET['findPost']."&"; ?><?php if(isset($_GET['category'])) echo "category=".$_GET['category']."&"; ?>page=<?=$getPage-1?>" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+							</a>
+						</li>
+						<?php else: ?>
+							<li class="page-item disabled">
+							<a class="page-link" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+							</a>
+						</li>
+						<?php endif; ?> 
+					
+					
+						<?php for($numberPage=$nubmerfirstPage; $numberPage<=$nubmerlastPage; $numberPage++):?>
+							<li class="page-item <?php if($numberPage==$getPage) echo "active"?>"><a class="page-link" 
+							href="http://localhost/index.php?<?php if(isset($_GET['findPost'])) echo "findPost=".$_GET['findPost']."&"; ?><?php if(isset($_GET['category'])) echo "category=".$_GET['category']."&"; ?>page=<?=$numberPage?>"><?=$numberPage?></a></li>
+						<?php endfor;?>
+						<?php if($getPage == $total_pages) : ?> 
+							<li class="page-item disabled">
+								<a class="page-link"  aria-label="Next">
+									<span aria-hidden="true">&raquo;</span>
+								</a>
+							</li>
+						<?php else: ?>
+							<li class="page-item">
+								<a class="page-link" href="http://localhost/index.php?<?php if(isset($_GET['findPost'])) echo "findPost=".$_GET['findPost']."&"; ?><?php if(isset($_GET['category'])) echo "category=".$_GET['category']."&"; ?>page=<?=$getPage+1?>" aria-label="Next">
+								<span aria-hidden="true">&raquo;</span></a>
+							</li>
+						
+						<?php endif; ?> 
+
+					
+				</ul>
+			</nav>
 
 
 	</main>
