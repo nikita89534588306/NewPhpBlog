@@ -24,8 +24,11 @@
 					 ?>
 					
 					<div class="posts col-12 col-md-7">
+						<div class="row">
 
-						<div class="h3 text-center">Управление категориями</div>
+							<div class="h3 col-9 text-center">Управление категориями</div>
+
+						</div>
 						<div class="row title-table ">
 							<div class="id col-2 text-center">ID</div>
 							<div class="title col-5 text-center">Название</div>

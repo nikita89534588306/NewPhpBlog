@@ -31,7 +31,7 @@
 		if(isset($_GET['findPost']))  $sql = $sql . " AND (posts.title LIKE '%$findText%' OR  posts.content LIKE '%$findText%')";
 
 		$totalValue_posts = queryDB($sql)->fetchColumn();
-		$maxPostOnPage = 3;
+		$maxPostOnPage = (isset($_GET['showValuePost'])) ? $_GET['showValuePost'] : 3;
 		$total_pages = ceil($totalValue_posts/$maxPostOnPage);
 		if(isset($_GET['page'])){
 			$getPage = $_GET['page'];
