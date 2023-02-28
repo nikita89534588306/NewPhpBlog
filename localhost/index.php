@@ -88,13 +88,25 @@
 											<?=$post['title']?>
 										</a>
 									</h3>
+									<div style="margin: 5px"class="md-3">
 									<i class='name-author fa fa-user'><?=$post["username"]?></i>
 									<i class='data-post fa fa-calendar'><?=$post["created_at"]?></i>
-									<div class="text">
-										<div style="display:inline-block" class='preview-text'>
+									</div>
+			
+										<style>
+											.contentTextPost{
+												overflow: hidden;
+												text-overflow: ellipsis;
+												display: -webkit-box;
+												-webkit-box-orient: vertical;
+												overflow-wrap: normal;
+											}
+										</style>
+
+										<div class='preview-text text contentTextPost'>
 											<?=$post['content']?>
 										</div>
-									</div>
+
 								</div>
 							</div>
 							<?php endif;?>
@@ -155,5 +167,32 @@
 
 	</main>
     <?php include "./app/templates/footer.php" ?>
+	<style>
+		.lineClamp4{
+			-webkit-line-clamp: 5;
+		}
+		.lineClamp3{
+			-webkit-line-clamp: 3;
+		}
+		</style>
+	<script>
+		var posts = document.querySelector('.posts').children;
+
+		for (var numberPost = 0; numberPost < posts.length; numberPost++) {
+			var postContent = 1; var postTitle = 0; var postText = 3;
+			
+			var heigthTitle = posts[numberPost].children[postContent].children[postTitle].clientHeight
+			var textPost =  posts[numberPost].children[postContent].children[postText]
+			
+
+			if(heigthTitle<=50)
+				textPost.classList.add("lineClamp4");
+			else 
+				textPost.classList.add("lineClamp3");
+
+			
+
+		}
+	</script>
 </body>
 </html>
